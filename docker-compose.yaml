@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  cloudbeaver:
+    image: dbeaver/cloudbeaver:23.3
+    container_name: con_cloudbeaver
+    ports:
+      - '8081:8978'
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+      - ./vsftpd.conf:/opt/cloudbeaver/workspace
+    restart: unless-stopped
